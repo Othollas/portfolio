@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olivier Thollas</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <meta name="description" content="Portfolio de olivier thollas developpeur junior">
+</head>
+
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <a href="./index.html">
+                    <img src="" alt="logo d'olivier thollas">
+                </a>
+            </div>
+            <div class="lien">
+                <ul>
+                    <li><a href="#presentation">presentation</a></li>
+                    <li><a href="#telechargement">téléchargement</a></li>
+                    <li><a href="#mesTravaux">mes travaux</a></li>
+                    <li><a href="#contact">contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <section id="acceuil">
+        <div class="container">
+            <h1>Bienvenue, je suis Olivier</h1>
+            <a href="#presentation"><img src="" alt="redirection vers la section suivante"></a>
+        </div>
+        <div class="bouton-hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </section>
+
+    <section id="presentation">
+        <div class="container">
+            <div class="introduction">
+                <h2>Ma présentation</h2>
+                <p>Je m'appelle Olivier et je viens du sud-ouest de la France (33). Je suis actuellement en reconversion
+                    professionnelle pour devenir développeur fullstack. Il y a un an, j'ai entrepris d'apprendre le
+                    codage. Pour cela, j'ai suivi une formation de développeur web et web mobile chez M2i à
+                    Villeneuve-d'Ascq (59), où j'ai obtenu mon titre de niveau 5 (bac+2) après beaucoup de persévérance.
+                    La formation était intensive et couvrait de nombreuses notions en peu de temps.
+
+                    Passionné d'informatique depuis mon plus jeune âge, j'ai finalement décidé de relever le défi de la
+                    reconversion après plusieurs péripéties. Aujourd'hui, je cherche un emploi en tant que développeur
+                    junior pour mettre en pratique mes connaissances fraîchement acquises et apprendre auprès de
+                    personnes compétentes. En attendant, je continue à me former et à travailler sur différents projets
+                    chaque jour.</p>
+            </div>
+            <div class="container">
+                <div class="group"><img src="./image/frontend-logo.png" alt="image representant le frontend"></div>
+            </div>
+            <div class="container">
+                <div class="group"><img src="./image/backend-logo.png" alt="image representant le backend"></div>
+            </div>
+            <div class="container">
+                <div class="group"><img src="" alt="image representant l'innovation"></div>
+            </div>
+        </div>
+    </section>
+    <section id="cv">
+        <div class="telechargement"></div>
+
+    </section>
+    <section id="mesTravaux">
+        <!-- carroussel -->
+        <div class="container">
+            <div class="caroussel">
+                <div class="image">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                </div>
+                <div class="btn-gauche"></div>
+                <div class="btn-droite"></div>
+            </div>
+        </div>
+    </section>
+    <section id="contact">
+        <form action="./contact.php" method="post">
+            <div class="form">
+                <label for="email">Entre ton email</label>
+                <input type="email" id="email" name="email">
+            </div>
+            <div class="form">
+                <label for="sujet">Entre le sujet</label>
+                <input type="text" id="sujet" name="sujet">
+            </div>
+            <div class="textarea">
+                <label for="message">Dit moi ce que tu veux en quelques mots</label>
+                <textarea name="message" id="message"></textarea>
+            </div>
+            <div class="button">
+                <input type="submit" value="envoyer">
+            </div>
+        </form>
+    </section>
+    <footer></footer>
+</body>
+<script src="./js/script.js"></script>
+
+</html>
