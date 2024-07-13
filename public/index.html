@@ -5,107 +5,181 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Olivier Thollas</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./asset/css/style.css">
     <meta name="description" content="Portfolio de olivier thollas developpeur junior">
 </head>
 
 <body>
+
+
     <header>
-        <div class="nav-container">
-            <div class="logo">
-                <a href="./index.html">
-                    <img src="" alt="logo d'olivier thollas">
-                </a>
-            </div>
-            <div class="lien">
-                <ul>
+        <div class="container">
+            <div class="element">
+                <nav>
+                    <a href="./index.html">
+                        <img src="" alt="logo d'olivier thollas">
+                    </a>
+                </nav>
+
+                <ul class="nav">
                     <li><a href="#presentation">presentation</a></li>
-                    <li><a href="#telechargement">téléchargement</a></li>
+                    <li><a href="#cv">Mon cv</a></li>
                     <li><a href="#mesTravaux">mes travaux</a></li>
                     <li><a href="#contact">contact</a></li>
                 </ul>
+
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
             </div>
+
         </div>
     </header>
 
-    <section id="acceuil">
-        <div class="container">
+    <main>
+
+        <section id="accueil">
             <h1>Bienvenue, je suis Olivier</h1>
-            <a href="#presentation"><img src="" alt="redirection vers la section suivante"></a>
-        </div>
-        <div class="bouton-hamburger">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </div>
-    </section>
+            <p>Developpeur web web mobile junior</p>
+            <a class="flecheBlanche" href="#presentation"><img src="./asset/image/fleche blanche.png"
+                    alt="redirection vers la section suivante"></a>
+        </section>
 
-    <section id="presentation">
-        <div class="container">
-            <div class="introduction">
-                <h2>Ma présentation</h2>
-                <p>Je m'appelle Olivier et je viens du sud-ouest de la France (33). Je suis actuellement en reconversion
-                    professionnelle pour devenir développeur fullstack. Il y a un an, j'ai entrepris d'apprendre le
-                    codage. Pour cela, j'ai suivi une formation de développeur web et web mobile chez M2i à
-                    Villeneuve-d'Ascq (59), où j'ai obtenu mon titre de niveau 5 (bac+2) après beaucoup de persévérance.
-                    La formation était intensive et couvrait de nombreuses notions en peu de temps.
+        <section id="presentation">
+            <div class="container-presentation">
+                <div class="introduction">
+                    <h2>Ma présentation</h2>
+                    <p>Je m'appelle <b>Olivier</b> et je viens du sud-ouest de la France (33). Je suis actuellement en
+                        reconversion
+                        professionnelle pour devenir <b>développeur fullstack</b>. Il y a un an, j'ai entrepris
+                        d'apprendre le
+                        codage. Pour cela, j'ai suivi une <b>formation de développeur web et web mobile</b> chez M2i à
+                        Villeneuve-d'Ascq (59), où j'ai obtenu mon titre de niveau 5 (bac+2) après beaucoup de
+                        persévérance.
+                        La formation était intensive et couvrait de nombreuses notions en peu de temps.
 
-                    Passionné d'informatique depuis mon plus jeune âge, j'ai finalement décidé de relever le défi de la
-                    reconversion après plusieurs péripéties. Aujourd'hui, je cherche un emploi en tant que développeur
-                    junior pour mettre en pratique mes connaissances fraîchement acquises et apprendre auprès de
-                    personnes compétentes. En attendant, je continue à me former et à travailler sur différents projets
-                    chaque jour.</p>
-            </div>
-            <div class="container">
-                <div class="group"><img src="./image/frontend-logo.png" alt="image representant le frontend"></div>
-            </div>
-            <div class="container">
-                <div class="group"><img src="./image/backend-logo.png" alt="image representant le backend"></div>
-            </div>
-            <div class="container">
-                <div class="group"><img src="" alt="image representant l'innovation"></div>
-            </div>
-        </div>
-    </section>
-    <section id="cv">
-        <div class="telechargement"></div>
-
-    </section>
-    <section id="mesTravaux">
-        <!-- carroussel -->
-        <div class="container">
-            <div class="caroussel">
-                <div class="image">
-                    <img src="" alt="">
-                    <img src="" alt="">
-                    <img src="" alt="">
+                        Passionné d'informatique depuis mon plus jeune âge, j'ai finalement décidé de relever le défi de
+                        la
+                        reconversion après plusieurs péripéties. Aujourd'hui, je cherche un emploi en tant que
+                        <b>développeur
+                            junior</b> pour mettre en pratique mes connaissances fraîchement acquises et apprendre
+                        auprès de
+                        personnes compétentes. En attendant, je continue à me former et à travailler sur différents
+                        projets
+                        chaque jour.
+                    </p>
                 </div>
-                <div class="btn-gauche"></div>
-                <div class="btn-droite"></div>
+                <div class="container">
+                    <div class="group">
+                        <img src="./asset/image/frontend-logo.png" alt="image representant le frontend">
+                        <p>Le front end</p>
+                    </div>
+
+                    <div class="group">
+                        <img src="./asset/image/backend-logo.png" alt="image representant le backend">
+                        <p>Le back end</p>
+                    </div>
+
+                    <div class="group">
+                        <img src="./asset/image/innovation.png" alt="image representant l'innovation">
+                        <p>l'innovation au servicce des gens</p>
+                    </div>
+                </div>
+                <div class="logoTechno">
+                    <h3>Les languages que je maitrise</h3>
+                    <nav class="container-logo">
+                        <div class="logo">
+                            <img src="./asset/image/html.png" alt="logo de h t m l 5">
+                            <p>HTML5</p>
+                        </div>
+                        <div class="logo">
+                            <img src="./asset/image/css.png" alt="logo de c s s">
+                            <p>CSS</p>
+                        </div>
+                        <div class="logo">
+                            <img src="./asset/image/js.png" alt="logo de javascript">
+                            <p>JavaScript</p>
+                        </div>
+                        <div class="logo">
+                            <img src="./asset/image/react-logo.png" alt="logo de react">
+                            <p>REACT</p>
+                        </div>
+                        <div class="logo">
+                            <img src="./asset/image/mongodb.png" alt="logo de mongo d b">
+                            <p>MongoDB</p>
+                        </div>
+                        <div class="logo">
+                            <img src="./asset/image/php-logo.png" alt="logo de p h p">
+                            <p>PHP</p>
+                        </div>
+                        <div class="logo">
+                            <img src="./asset/image/mysql-logo-transp.png" alt="logo de my s q l">
+                            <p>MySql</p>
+                        </div>
+                    </nav>
+                </div>
             </div>
+        </section>
+
+        <section id="cv">
+
+            <div class="telechargement">
+                <a href="../public/asset/pdf/Cv olivier developpeur junior.pdf">mon cv</a>
+            </div>
+
+        </section>
+
+        <section id="mesTravaux">
+            <!-- carroussel -->
+                <div class="caroussel">
+                        <img src="./asset/image/carroussel/screencapture-starwarsgame-8888-2021-02-23-14_18_42.png" alt="projet mysoupe">
+                        <img src="./asset/image/carroussel/screencapture-starwarsgame-8888-game-php-2021-02-23-14_19_03.png" alt="projet memorycat">
+                        <img src="./asset/image/carroussel/Screenshot 2024-06-13 at 16-42-40 MySoupe.png" alt="projet battleForOnePiece">
+                        <div class="btn_gauche">&lt;</div>
+                        <div class="btn_droite">&gt;</div>
+                </div>
+        </section>
+
+        <section id="contact">
+            <form action="./contact.php" method="post">
+                <div class="container-input">
+                    <div class="form">
+                        <label for="email">Entre ton email</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+                    <div class="form">
+                        <label for="sujet">Entre le sujet</label>
+                        <input type="text" id="sujet" name="sujet">
+                    </div>
+                    <div class="textarea">
+                        <label for="message">Dit moi ce que tu veux en quelques mots</label>
+                        <textarea name="message" id="message"></textarea>
+                    </div>
+                </div>
+                <div class="container-btn">
+                    <div class="button">
+                        <input type="submit" value="envoyer">
+                    </div>
+                </div>
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="logos">
+            <img src="" alt="logo github">
+            <img src="" alt="logo linkedin">
         </div>
-    </section>
-    <section id="contact">
-        <form action="./contact.php" method="post">
-            <div class="form">
-                <label for="email">Entre ton email</label>
-                <input type="email" id="email" name="email">
-            </div>
-            <div class="form">
-                <label for="sujet">Entre le sujet</label>
-                <input type="text" id="sujet" name="sujet">
-            </div>
-            <div class="textarea">
-                <label for="message">Dit moi ce que tu veux en quelques mots</label>
-                <textarea name="message" id="message"></textarea>
-            </div>
-            <div class="button">
-                <input type="submit" value="envoyer">
-            </div>
-        </form>
-    </section>
-    <footer></footer>
+        <div>
+            <a href="">a propos</a>
+            <a href="">telechargement</a>
+            <a href="">contact</a>
+        </div>
+    </footer>
 </body>
-<script src="./js/script.js"></script>
+<script src="./asset/js/script.js"></script>
 
 </html>
