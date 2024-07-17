@@ -12,7 +12,7 @@
 <body>
 
 
-    <header>
+    <header >
         <div class="container">
             <div class="element">
                 <nav>
@@ -39,7 +39,6 @@
     </header>
 
     <main>
-
         <section id="accueil">
             <h1>Bienvenue, je suis Olivier</h1>
             <p>Developpeur web web mobile junior</p>
@@ -53,13 +52,13 @@
                     <h2>Ma présentation</h2>
                     <p>Je m'appelle <b>Olivier</b> et je viens du sud-ouest de la France (33). Je suis actuellement en
                         reconversion
-                        professionnelle pour devenir <b>développeur fullstack</b>. Il y a un an, j'ai entrepris
+                        professionnelle pour devenir <b>développeur fullstack</b>. Il y a <b>un an</b>, j'ai entrepris
                         d'apprendre le
                         codage. Pour cela, j'ai suivi une <b>formation de développeur web et web mobile</b> chez M2i à
                         Villeneuve-d'Ascq (59), où j'ai obtenu mon titre de niveau 5 (bac+2) après beaucoup de
                         persévérance.
                         La formation était intensive et couvrait de nombreuses notions en peu de temps.
-
+                        </p><p>
                         Passionné d'informatique depuis mon plus jeune âge, j'ai finalement décidé de relever le défi de
                         la
                         reconversion après plusieurs péripéties. Aujourd'hui, je cherche un emploi en tant que
@@ -73,18 +72,25 @@
                 </div>
                 <div class="container">
                     <div class="group">
-                        <img src="./asset/image/frontend-logo.png" alt="image representant le frontend">
-                        <p>Le front end</p>
+                        <div>
+                        <img src="./asset/image/front.png" alt="image representant le frontend">
+                    </div>
+                        <h3>Le front end</h3>
+                        <p>Le design ne se limite pas à l'apparence et à la sensation d'un produit à l'extérieur. La conception englobe la fonctionnalité interne d'un produit ainsi que l'expérience utilisateur globale. Je m'efforce de concevoir des interfaces et des expériences dont les gens peuvent profiter sur tous les supports numériques.</p>
                     </div>
 
                     <div class="group">
-                        <img src="./asset/image/backend-logo.png" alt="image representant le backend">
-                        <p>Le back end</p>
+                        <div><img src="./asset/image/backend.png" alt="image representant le backend"></div>
+                        
+                        <h3>Le back end</h3>
+                        <p>Doté de bonnes bases en informatique, je suis passionné par la conception et le développement de sites Web et intéressé par le développement d'applications mobiles.Au fur et à mesure que je grandis en tant que développeur, j'espère écrire du code propre et lisible qui pourra être utilisé par d'autres et exploité pour créer de superbes logiciels.</p>
                     </div>
 
                     <div class="group">
-                        <img src="./asset/image/innovation.png" alt="image representant l'innovation">
-                        <p>l'innovation au servicce des gens</p>
+                        <div><img src="./asset/image/innovation.png" alt="image representant l'innovation"></div>
+                        
+                        <h3>L'innovation</h3>
+                        <p>La technologie evolue, j'aime me renseigner et comprendre les nouvelles technologies. J'ai une curiosité insassiable pour la tech en général et je pense aux futurs developpement et à leur applications future. Je souhaiterais faire parti du futur de ces avancées</p>
                     </div>
                 </div>
                 <div class="logoTechno">
@@ -124,7 +130,7 @@
         </section>
 
         <section id="cv">
-
+            <h2>Pour en savoir plus sur moi </h2>
             <div class="telechargement">
                 <a href="../public/asset/pdf/Cv olivier developpeur junior.pdf">mon cv</a>
             </div>
@@ -132,6 +138,7 @@
         </section>
 
         <section id="mesTravaux">
+            <h2>Mes travaux</h2>
             <div class="carroussel">
 
                 <div class="contenu_carroussel">
@@ -148,12 +155,10 @@
                             alt="projet battleForOnePiece">
                     </div>
                     <div class="contenu_img">
-                        <img src="./asset/image/carroussel/Chat-mage.jpg"
-                            alt="projet battleForOnePiece">
+                        <img src="./asset/image/carroussel/Chat-mage.jpg" alt="projet battleForOnePiece">
                     </div>
                     <div class="contenu_img">
-                        <img src="./asset/image/carroussel/01.jpg"
-                            alt="projet battleForOnePiece">
+                        <img src="./asset/image/carroussel/01.jpg" alt="projet battleForOnePiece">
                     </div>
                 </div>
 
@@ -166,19 +171,20 @@
         </section>
 
         <section id="contact">
-            <form action="./contact.php" method="post">
+            <h2>Si vous voulez me contacter</h2>
+            <form action="../private/script.php" method="get">
                 <div class="container-input">
                     <div class="form">
                         <label for="email">Entre ton email</label>
-                        <input type="email" id="email" name="email">
+                        <input type="email" id="email" name="email" required>
                     </div>
                     <div class="form">
                         <label for="sujet">Entre le sujet</label>
-                        <input type="text" id="sujet" name="sujet">
+                        <input type="text" id="sujet" name="sujet" required>
                     </div>
                     <div class="textarea">
                         <label for="message">Dit moi ce que tu veux en quelques mots</label>
-                        <textarea name="message" id="message" cols="30" rows="10"></textarea>
+                        <textarea name="message" id="message" cols="30" rows="10" required></textarea>
                     </div>
                 </div>
                 <div class="container-btn">
@@ -192,15 +198,24 @@
     </main>
 
     <footer>
-        <div class="logos">
-            <img src="" alt="logo github">
-            <img src="" alt="logo linkedin">
+        <div class="containerFooter">
+            <div class="logos">
+                <a class="logo" href="">
+                    <img src="./asset/image/github_icn.png" alt="logo github">
+                </a>
+                <a class="logo" href="">
+                    <img src="./asset/image/lkdn_icn.png" alt="logo linkedin">
+                </a>
+            </div>
+            <div class="liensFooter">
+                <ul>
+                    <li><a href="">a propos</a></li>
+                    <li><a href="">telechargement</a></li>
+                    <li><a href="">contact</a></li>
+                </ul>
+            </div>
         </div>
-        <div>
-            <a href="">a propos</a>
-            <a href="">telechargement</a>
-            <a href="">contact</a>
-        </div>
+        <p class="copyright">olivier 2024</p>
     </footer>
 </body>
 <script src="./asset/js/script.js"></script>

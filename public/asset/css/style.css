@@ -3,6 +3,8 @@
 * {
     box-sizing: border-box;
     font-family: sans-serif;
+    list-style-type: none;
+    scroll-behavior: smooth;
 }
 
 html {
@@ -14,19 +16,29 @@ body {
     font-size: 16px;
 }
 
+h2 {
+    margin: 5rem;
+    text-align: center;
+    margin-top: 2rem;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
 /* ------------script navbar ------------- */
 header {
-
+    z-index: 1;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     .container {
+        margin: 1rem;
         .element {
             display: flex;
             align-items: center;
             justify-content: space-between;
-
+            margin: 0 2rem;
             a {
                 text-decoration: none;
                 color: white;
@@ -38,11 +50,9 @@ header {
 
             ul {
                 display: flex;
-                list-style-type: none;
-
+                
                 a {
-
-
+                    margin: 0 2rem;
                     &:hover {
                         transition: 0.3s ease;
                         color: rgb(0, 0, 0);
@@ -53,10 +63,10 @@ header {
             .hamburger {
                 display: none;
                 cursor: pointer;
-
+                z-index: 2;
                 @media (max-width:768px) {
-                    margin: 10px;
-                    display: block;
+                        display: block;
+                        margin: 10px;
                 }
 
                 .bar {
@@ -73,11 +83,31 @@ header {
     }
 }
 
-@media (max-width:768px) {
-    .hamburger {
-        position: relative;
-        display: block;
+/* poisiton fixed du header pendant le scroll */
+
+header.scroll{
+    height: 50px;
+    position: fixed;
+    background-color: hsla(0, 0%, 0%, 0.9);
+    border-bottom: 1px solid #d1cdcd;
+    margin: 0;
+    padding: 0;
+    .container{
+        margin: 0;
     }
+    .element{
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        
+    }
+}
+
+/* style du header quand la fenetre fait moins de 768px et comportement du bouton hamburger*/
+
+@media (max-width:768px) {
+   
+  
 
     .active .bar:nth-child(1) {
         transform: rotate(45deg) translateY(11px);
@@ -92,22 +122,23 @@ header {
     }
 
     .nav.active {
-        background-color: black
+        background-color: rgba(0, 0, 0, 0.9)
     }
 
     .nav {
         position: absolute;
-        gap: 30px;
+        padding: 5rem;
+        gap: 3rem;
         left: 0;
         right: 0;
-        top: -500%;
+        top: -600%;
         flex-direction: column;
         background-color: rgba(255, 255, 255, 0.90);
         width: 100%;
         text-align: center;
         transition: 0.3s;
         border-bottom: 1px solid black;
-
+        z-index: 2;
         a {
             margin: 10px;
         }
@@ -115,6 +146,7 @@ header {
 
     .nav.active {
         top: -15px;
+        
     }
 }
 
@@ -122,28 +154,42 @@ header {
 /* ------------script accueil ------------- */
 
 #accueil {
+    position: relative;
     justify-content: center;
     align-items: center;
     height: 100vh;
     display: flex;
-    background-image: url(../image/paysage-montagne-montagne-arriere-plan_871881-661.jpg);
+    background-image: linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, 0.3) 100%), url(../image/paysage-montagne-montagne-arriere-plan_871881-661.jpg);
     background-position: center;
     background-size: cover;
     flex-direction: column;
-    
+
     h1,
     p {
+        text-shadow: 1px 1px 5px  #000000;
         color: aliceblue;
         text-align: center;
     }
 
+    h1{
+        animation-duration: 2s;
+        animation-name: titre_haut;
+        animation-fill-mode: both;
+    }
+    p{
+        animation-duration: 2s;
+        animation-name: titre_bas;
+        animation-fill-mode: both;
+    }
+
     .flecheBlanche {
+        
         width: 100px;
         height: 100px;
         animation-duration: 2s;
         animation-name: fleche;
         animation-fill-mode: both;
-        
+
         img {
             rotate: 90deg;
         }
@@ -160,7 +206,25 @@ header {
     }
 }
 
+@keyframes titre_haut {
+    from {
+        transform: translateY(-50px);
+    }
 
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes titre_bas {
+    from {
+        transform: translateY(50px);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
 
 /* ------------script presentation ------------- */
 
@@ -173,14 +237,7 @@ header {
 
         .introduction {
             margin: 5rem 15rem;
-
-            h2 {
-                margin: 5rem;
-                text-align: center;
-                margin-top: 2rem;
-            }
         }
-
 
         .container {
             margin: 10rem 0;
@@ -191,56 +248,80 @@ header {
             .group {
                 width: 30rem;
                 text-align: center;
-                border: 1px solid black;
                 border-radius: 2rem;
                 margin: 2rem;
                 padding: 1rem;
-
-                img {
-                    height: 10rem;
+                
+                p {
+                    text-align: center;
                 }
+                div{
+                    
+                  
+                    padding: 1rem;
+                    border-radius: 50%;
+                    
+                    img {
+                       
+                    
+                        height: 10rem;
+                       
+                        padding: 1rem;
+                    }
+                }
+                
+            }
+        }
+    }
+
+    .logoTechno {
+        margin: 0;
+
+        h3 {
+            text-align: center;
+            margin-bottom: 5rem;
+            text-transform: uppercase;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        text-transform: uppercase;
+
+        font-size: 1rem;
+        font-family: Arial,
+        Helvetica,
+        sans-serif;
+        font-weight: 700;
+        flex-wrap: wrap;
+
+        .container-logo {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            flex-wrap: wrap;
+            margin: 1rem 1rem;
+            gap: 20px;
+
+            img {
+                animation-name: logo;
+                animation-duration: 2s;
+                height: 75px;
             }
         }
 
-        .logoTechno {
-            margin: 0;
+        .logo {
+            animation-name: logo;
+            animation-duration: 2s;
+            transition: 0.5s;
+            filter: grayscale(1);
 
-            h3 {
-                text-align: center;
-                margin-bottom: 5rem;
-            }
-
-            text-transform: uppercase;
-
-            font-size: 1rem;
-            font-family: Arial,
-            Helvetica,
-            sans-serif;
-            font-weight: 700;
-            flex-wrap: wrap;
-
-            .container-logo {
-                display: flex;
-                justify-content: space-around;
-                text-align: center;
-                flex-wrap: wrap;
-                margin: 1rem 1rem;
-                gap: 20px;
-
-                img {
-                    animation-name: logo;
-                    animation-duration: 2s;
-                    height: 75px;
-                }
-            }
-
-            .logo {
-                animation-name: logo;
-                animation-duration: 2s;
+            &:hover {
+                filter: grayscale(0);
             }
         }
     }
 }
+
 
 @keyframes logo {
     from {
@@ -275,15 +356,24 @@ header {
 /* ------------script téléchargement ------------- */
 
 #cv {
+    color: white;
     display: flex;
-    height: 200px;
-    background-image: url(../image/cascade\ bureau.jpeg);
+    height: 250px;
+    background-image: url(../image/bureau.jpg);
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+
+    h2 {
+        text-transform: uppercase;
+        letter-spacing: -1px;
+        font-family: sans-serif;
+        font-weight: 800;
+    }
 
     .telechargement {
         padding: 2rem 4rem;
@@ -307,7 +397,6 @@ header {
             a {
                 color: white;
             }
-
         }
     }
 }
@@ -316,6 +405,9 @@ header {
 
 #mesTravaux {
     position: relative;
+    text-align: center;
+    margin-top: 5rem;
+
 
     .carroussel {
         position: relative;
@@ -409,23 +501,28 @@ header {
                 width: 100%;
                 border: none;
                 background-color: rgba(255, 255, 255, );
-
+                outline: none;
                 border-radius: 2px;
             }
 
             label {
                 padding-top: 2rem;
+
             }
 
             input {
+                box-shadow: 1px 1px 10px white;
                 margin: 1rem;
                 padding: 1rem;
+
             }
 
             textarea {
+                box-shadow: 1px 1px 10px white;
                 margin: 1rem;
                 resize: none;
                 padding: 2rem;
+
             }
         }
 
@@ -443,7 +540,7 @@ header {
                 transition: 0.3s ease;
 
                 &:hover {
-                    box-shadow: 0 0 0;
+                    box-shadow: 0 0 0 black;
                 }
             }
         }
@@ -453,14 +550,60 @@ header {
 }
 
 
-
-
-
-
-
 footer {
+    background: linear-gradient(#000000c5, #000000);
     width: 100%;
-    height: 10rem;
-    background-image: url(../image/espace\ bureau.jpeg);
-    background-size: contain;
+    text-align: center;
+
+    p {
+        color: white;
+    }
+
+    .containerFooter {
+
+        margin: 5rem 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .logos {
+            margin: 5rem 0;
+
+            .logo {
+                margin: 0 1rem;
+
+                img {
+                    border-radius: 10px;
+                    width: 50px;
+                    background-color: #F0F0F0;
+                    box-shadow: 1px 1px 15px white;
+
+                    &:hover {
+                        background-color: #d1cdcd;
+                        box-shadow: 1px 1px 15px rgb(0, 0, 0);
+                    }
+                }
+            }
+        }
+
+        .liensFooter {
+            ul {
+                display: flex;
+
+                li {
+                    a {
+                        padding: 1rem;
+                        text-decoration: none;
+                        text-transform: uppercase;
+                        color: white;
+                        letter-spacing: -0.5px;
+
+                        &:hover {
+                            color: rgb(150, 147, 147);
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
