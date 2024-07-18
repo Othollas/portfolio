@@ -25,91 +25,106 @@ window.addEventListener("scroll", () => {
 // parametrage de l'api observer afin d'animer les elements au scroll
 
 
-
 let telechargement = document.querySelector(".telechargement");
-let logos = document.querySelectorAll(".logo");
+let groups = document.querySelectorAll(".group");
+let logo = document.querySelectorAll(".logo");
 let carroussel = document.querySelector(".contenu_carroussel")
 let form = document.querySelector(".container-input")
+let navigation = document.querySelector(".navigation");
 
-// const option = {
-//     root: document.querySelector("html"),
-//     rootMargin: "0px",
-//     threshold: 1.0,
-// }
+// observer pour l'animation de la section téléchargement
 
 const observerTelechargement = new IntersectionObserver((entries) => {
     for (const entry of entries) {
         if (entry.isIntersecting) {
             entry.target.animate([
-                { transform: "scale(1) rotate(0deg)", opacity: 0 },
-                { transform: "scale(1.5) rotate(-180deg)", opacity: 1 },
-                { transform: "scale(1) rotate(-360deg)", opacity: 1 }
-
-            ], { duration: 2000 })
+                { transform: "scale(1)", opacity: 0 },
+                { transform: "scale(1.3)", opacity: 0.7 },
+                { transform: "scale(1)", opacity: 1 },
+            ], { duration: 1500 })
         }
     }
 })
 
-const observerlogos = new IntersectionObserver((entries) => {
+// observer pour l'animation des logos frontend backend et innovation
 
-})
+const observerLogos = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+        if (entry.isIntersecting) {
+            entry.target.animate([
+                { transform: "translateX(50px)", opacity: 0.1 },
+                { transform: "translateX(0px)", opacity: 1 },
+            ], { duration: 1500 })
+        }
+    }
+}, { threshold: 0.5 })
 
+// observer pour l'animation des logos des technologies utilisé
+
+const observerLogo = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+        if (entry.isIntersecting) {
+            entry.target.animate([
+                { transform: "translateX(0px)", opacity: 0 },
+                { transform: "translateX(0px)", opacity: 1 },
+            ], { duration: 1500 })
+        }
+    }
+}, { threshold: 1 })
+
+// observer pour l'animation du slide
 
 const observerCarroussel = new IntersectionObserver((entries) => {
     for (const entry of entries) {
         if (entry.isIntersecting) {
             entry.target.animate([
-                { transform: "translateX(-100px)", opacity: 0 },
-                { transform: "translateX(0px)", opacity: 1 },
-            ], {duration: 1000})
+                { transform: "translate(0px)", opacity: 0.5 },
+
+                { transform: "translate(0px)", opacity: 1 },
+            ], { duration: 2000 })
         }
     }
-})
+}, { threshold: 0.5 })
 
 
-const observerForm = new IntersectionObserver((entries) => {
 
-})
+// observer pour faire bouger les fleches du slider
 
-const observer = new IntersectionObserver((entries) => {
+const observerNavigation = new IntersectionObserver((entries) => {
     for (const entry of entries) {
-        if (entry.isIntersecting && entry.target.classList.value == "telechargement") {
-            entry.target.animate([
-                { transform: 'scale(1)', opacity: 0 },
-                { transform: 'scale(1.5)', opacity: 1 },
-                { transform: 'scale(1)', opacity: 1 }
-            ],
-                { duration: 1000 }
-            )
-            entry.target.classList("flecheGauche").animate([
-                { transform: 'scale(1)', opacity: 0 },
-                { transform: 'scale(1.5)', opacity: 1 },
-                { transform: 'scale(1)', opacity: 1 }
-            ],
-                { duration: 1000 }
-            )
-        }
-        if (entry.isIntersecting && entry.target.classList.value == "container-input") {
-            entry.target.animate([
-                { transform: 'translateY(-20px)', opacity: 0 },
-                { transform: 'translateY(0px)', opacity: 1 },
-
-            ],
-                { duration: 1000 }
-            )
-            c
+        if (entry.isIntersecting) {
+            let childs = entry.target.children;
+            for (const child of childs) {
+                let fleche = child.classList.value;
+                if (fleche === "droite") {
+                    child.animate([
+                        { transform: "translate(-50px) scale(1)", opacity: 0 },
+                        { transform: "translate(0)", opacity: 1 },
+                    ], { duration: 1000 })
+                } else {
+                    child.animate([
+                        { transform: "translate(50px) scale(1)", opacity: 0 },
+                        { transform: "translate(0)", opacity: 1 },
+                    ], { duration: 1000 })
+                }
+            }
         }
     }
-},
-    {
-        threshold: 1
-    })
+})
 
-// observer.observe(presentation);
-observer.observe(document.querySelector(".container-input"));
+observerNavigation.observe(navigation)
 observerTelechargement.observe(telechargement);
 observerCarroussel.observe(carroussel);
 
+
+
+for (let i = 0; i < groups.length; i++) {
+    observerLogos.observe(groups[i]);
+}
+
+for (let i = 0; i < logo.length; i++) {
+    observerLogo.observe(logo[i]);
+}
 
 /* script pour le carroussel */
 
