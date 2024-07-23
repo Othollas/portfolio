@@ -260,9 +260,9 @@ header.scroll {
                 border-radius: 2rem;
                 margin: 2rem;
                 padding: 1rem;
-
+                
                 p {
-                    text-align: center;
+                    text-align: justify;
                 }
 
                 div {
@@ -442,34 +442,24 @@ header.scroll {
             padding: 2rem;
             cursor: pointer;
 
-            .gauche {
+            div {
                 position: absolute;
-                left: 20px;
                 top: 50%;
                 transform: scaleY(2);
                 background-color: rgba(0, 0, 0, 0.5);
                 padding: 0 2rem;
                 border-radius: 100%;
-                transition: 0.5s ease;
-
                 &:hover {
                     background-color: rgba(0, 0, 0, 0.8);
                 }
             }
 
-            .droite {
-                position: absolute;
-                right: 20px;
-                top: 50%;
-                transform: scaleY(2);
-                background-color: rgba(0, 0, 0, 0.5);
-                padding: 0 2rem;
-                border-radius: 100%;
-                transition: 0.5s ease;
+            .gauche {
+                left: 20px;
+            }
 
-                &:hover {
-                    background-color: rgba(0, 0, 0, 0.8);
-                }
+            .droite {
+                right: 20px;
             }
         }
 
@@ -494,6 +484,26 @@ header.scroll {
     }
 }
 
+@media (max-width:800px) {
+    #mesTravaux {
+        margin: 15px 10px;
+
+        .carroussel {
+            margin: 0 auto;
+        }
+    }
+}
+
+@media (max-width:500px) {
+    #mesTravaux {
+        margin: 15px 10px;
+
+        .carroussel {
+            margin: 0 auto;
+            height: 250px;
+        }
+    }
+}
 
 /* ------------script contact ------------- */
 
@@ -609,11 +619,13 @@ footer {
         .liensFooter {
             ul {
                 display: flex;
-              
+
                 margin-bottom: 1rem;
-               padding-left: 0;
+                padding-left: 0;
+
                 li {
                     padding: 1rem;
+
                     a {
                         text-decoration: none;
                         text-transform: uppercase;
@@ -628,6 +640,7 @@ footer {
             }
         }
     }
+
     p {
         padding: 2rem 0;
         text-align: center;
@@ -635,9 +648,10 @@ footer {
 }
 
 @media (max-width:600px) {
-    ul{
+    ul {
         flex-direction: column;
-       li{
+
+        li {
             margin: 0.5rem 0;
         }
     }

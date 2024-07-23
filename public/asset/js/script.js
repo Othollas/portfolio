@@ -3,12 +3,38 @@
 let hamburger = document.querySelector(".hamburger");
 let nav = document.querySelector(".nav");
 let bar = document.querySelector(".bar");
+let link = document.querySelector(".link");
 
 hamburger.addEventListener("click", () => {
     nav.classList.toggle("active");
     bar.classList.toggle("active");
     hamburger.classList.toggle("active");
 })
+
+
+let lastScroll = window.scrollY;
+let hideHeader = document.querySelector("header");
+let thresholdUp = 200;
+let thresholdDown = 100;
+let totalScroll = 0;
+
+window.addEventListener("scroll", ()=>{
+    const currentScroll = window.scrollY;
+    const deltaScroll = currentScroll - lastScroll;
+    totalScroll += deltaScroll;
+        
+    if (totalScroll > thresholdUp) {
+        hideHeader.style.display = 'none';  // Cache le header
+        totalScroll = thresholdUp;  // Limite le totalScroll à la valeur du threshold
+    } else if (totalScroll < -thresholdDown) {
+        hideHeader.style.display = 'block'; // Affiche le header
+        totalScroll = -thresholdDown;  // Limite le totalScroll à la valeur du threshold négatif
+    }
+
+    lastScroll = currentScroll;
+    
+    
+});
 
 // script pour mettre le header en position fixe lors du scroll
 
@@ -52,9 +78,9 @@ const observerLogos = new IntersectionObserver((entries) => {
     for (const entry of entries) {
         if (entry.isIntersecting) {
             entry.target.animate([
-                { transform: "translateX(50px)", opacity: 0.1 },
+                { transform: "translateX(50px)", opacity: 1 },
                 { transform: "translateX(0px)", opacity: 1 },
-            ], { duration: 1500 })
+            ], { duration: 1000 })
         }
     }
 }, { threshold: 0.5 })
@@ -128,43 +154,52 @@ for (let i = 0; i < logo.length; i++) {
 
 /* script pour le carroussel */
 
-let gauche = document.querySelector(".gauche");
-let droite = document.querySelector(".droite");
-let slide = document.querySelector(".contenu_carroussel");
-let tailleEcran;
+const gauche = document.querySelector(".gauche");
+const droite = document.querySelector(".droite");
 
-const verifPositionImg = () => {
-    let currentIndex = Math.floor(slide.scrollLeft / tailleEcran);
-    slide.scrollLeft = currentIndex * tailleEcran;
-};
-
-//fonction pour definir le maximum de la limite du slider en px selon la taille de la fenetre
-
-const finSlide = () => {
-    return slide.scrollWidth - slide.clientWidth;
-};
-
-const adapterTailleEcran = () => {
-    tailleEcran = window.innerWidth < 800 ? window.innerWidth : 800;
-    verifPositionImg();
-}
-
-// ternaire pour definir la taille du slide selon la taille de l'ecran
-window.innerWidth < 800 ? tailleEcran = window.innerWidth : tailleEcran = 800;
-
-window.addEventListener("resize", adapterTailleEcran)
 
 droite.addEventListener('click', () => {
-    slide.scrollLeft += tailleEcran;
-    if (slide.scrollLeft >= finSlide()) {
-        slide.scrollLeft = 0;
+    const tailleSlide = document.querySelector(".carroussel").offsetWidth;
+    const contenuSlide = document.querySelector(".contenu_carroussel");
+    contenuSlide.scrollLeft += tailleSlide;
+    const scrollLeft = contenuSlide.scrollLeft;
+    const elementsSlide = contenuSlide.querySelectorAll(".contenu_img");
+    
+
+    if(scrollLeft == tailleSlide * (elementsSlide.length-1)){
+        contenuSlide.scrollLeft = 0;
     }
+    
+        console.log(elementsSlide[1].offsetWidth)
+        
+    
+        
 })
+
 
 gauche.addEventListener('click' || 'onTouch', () => {
-
-    slide.scrollLeft -= tailleEcran;
-    if (slide.scrollLeft <= 0) {
-        slide.scrollLeft = finSlide();
+    const tailleSlide = document.querySelector(".carroussel").offsetWidth;
+    const contenuSlide = document.querySelector(".contenu_carroussel");
+    contenuSlide.scrollLeft -= tailleSlide;
+    const scrollLeft = contenuSlide.scrollLeft;
+    const elementsSlide = contenuSlide.querySelectorAll(".contenu_img");
+    
+    if(scrollLeft == 0){
+        contenuSlide.scrollLeft = tailleSlide * (elementsSlide.length-1);
     }
+
+    console.log(Math.floor(contenuSlide.scrollLeft / tailleSlide))
+
 })
+
+// const verifPositionImg = () => {
+//     let currentIndex = Math.floor(contenuSlide.scrollLeft / tailleSlide);
+//     contenuSlide.scrollLeft = currentIndex * tailleSlide;
+// };
+
+// const adapterTailleEcran = () => {
+//     contenuSlide = window.innerWidth < 800 ? tailleSlide : 800;  
+//     verifPositionImg();
+// }
+
+// window.addEventListener("resize", adapterTailleEcran)
